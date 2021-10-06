@@ -40,16 +40,29 @@ void traiterChoix(int choix, float *val){
     int taille = 0, resultat = 0;
     //char *valeurHexadecimal;
     unsigned int nombreDecimal = 0;
+    printf("Entrez la taille du tableau : " );
+    scanf("%d", &taille);
 
+    val = malloc( taille * sizeof(float));
+
+    if (val == NULL) // On vérifie si l'allocation a marché ou non
+    {
+        exit(0); // On arrête tout
+    }
+
+    remplirTab(val, taille);
+    printf("%s", val);
+    
     switch (choix)
         {
         case 1:
-            
+            printf("1. Tri a bulle\n");
             break;
 
         case 2:
             printf("2. Tri par selection\n");
             
+
             break;
         
         case 3:
