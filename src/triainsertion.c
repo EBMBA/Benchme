@@ -6,7 +6,7 @@ void triInsertion(int *tableauATrier){
     
     for (int i = 0; i < taille; i++)
     {
-        /* code */
+        
     }
     
 }

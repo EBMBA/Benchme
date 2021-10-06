@@ -1,7 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
-void afficheMenu(){
+void afficherMenu(){
     printf("Choissisez une methode de tri :\n");
     for (size_t i = 1; i < 5; i++)
     {
@@ -22,7 +23,11 @@ void afficheMenu(){
         case 4:
             printf("%ld. Tri par pas\n",i );
             break;
-        
+
+        case 5:
+            printf("%ld. Quitter\n",i );
+            break;
+
         default:
             break;
         }
@@ -35,10 +40,10 @@ void traiterChoix(int choix, float *val){
     int taille = 0, resultat = 0;
     //char *valeurHexadecimal;
     unsigned int nombreDecimal = 0;
+
     switch (choix)
         {
         case 1:
-            printf("1. Tri a bulle\n");
             
             break;
 
@@ -73,9 +78,9 @@ int obtenirTaille(float *tab){
     return taille;
 }
 
-char *inverserTab(float *Tab){
+float *inverserTab(float *TableauAInverser){
     float *tableauInverser = NULL;
-    unsigned int i = obtenirTaille(Tab);
+    unsigned int i = obtenirTaille(TableauAInverser);
     //printf("%d", i);
     tableauInverser = malloc(i * sizeof(float));
 
@@ -84,10 +89,24 @@ char *inverserTab(float *Tab){
     unsigned int p = i;
     for (unsigned int n = 0; n <= p; n++)
     {
-        tableauInverser[n] = Tab[i];
+        tableauInverser[n] = TableauAInverser[i];
         //printf("Resultat : %s\nInversion Resultat : %s\n",Tab, tableauInverser);
         i--; 
     }
 
     return tableauInverser;
+}
+
+void *remplirTab(float *TableauARemplir, int taille){
+    srand(time(0));
+    
+
+    for (int h = 0; h < taille; h++)
+    {
+        
+        float num = ( ((float)rand() / (float)100) * 5.0 );
+        TableauARemplir[h] = num;
+        
+    }
+
 }

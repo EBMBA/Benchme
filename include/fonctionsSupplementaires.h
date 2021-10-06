@@ -1,3 +1,4 @@
-void afficheMenu();
+void afficherMenu();
+void traiterChoix(int choix, float *val);
 int obtenirTaille(float *tab);
-char *inverserTab(float *Tab);
+float *inverserTab(float *Tab);
