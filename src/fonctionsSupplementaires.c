@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include "../include/triBulle.h"
 
 void afficherMenu(){
     printf("Choissisez une methode de tri :\n");
@@ -51,7 +52,8 @@ void traiterChoix(int choix, float *val){
     }
 
     remplirTab(val, taille);
-    printf("%s", val);
+    
+    affice(val, taille);
     
     switch (choix)
         {
@@ -110,16 +112,27 @@ float *inverserTab(float *TableauAInverser){
     return tableauInverser;
 }
 
-void *remplirTab(float *TableauARemplir, int taille){
+void remplirTab(float TableauARemplir[], int taille){
     srand(time(0));
     
 
     for (int h = 0; h < taille; h++)
     {
         
-        float num = ( ((float)rand() / (float)100) * 5.0 );
+        //float num = ( ((float)rand() / (float)(RAND_MAX)) * 100.0 );
+        int num = ( rand() % ( 99 - 1  + 1 ) );
         TableauARemplir[h] = num;
         
     }
 
+}
+
+void affiche(int *tableau, int tailleTableau)
+{
+    int i;
+ 
+    for (i = 0 ; i < tailleTableau ; i++)
+    {
+        printf("%d\n", tableau[i]);
+    }
 }
