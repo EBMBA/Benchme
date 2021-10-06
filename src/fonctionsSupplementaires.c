@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 #include "../include/triBulle.h"
+#include "../include/triInsertion.h"
 
 void afficherMenu(){
     printf("Choissisez une methode de tri :\n");
@@ -64,12 +65,12 @@ void traiterChoix(int choix, float *val){
         case 2:
             printf("2. Tri par selection\n");
             
-
             break;
         
         case 3:
             printf("3. Tri par insertion\n");
-            
+            triInsertion(val);
+            affiche(val, taille);
             break;
         
         case 4:
