@@ -1,16 +1,18 @@
 #include <stdio.h>
 #include "../include/fonctionsSupplementaires.h"
 
-void triInsertion(int *tableauATrier){
-    int taille = obtenirTaille(tableauATrier), j;
-    
-    for (int i = 1; i < taille; i++)
-    {
-        for (j = i; j > 0 && tableauATrier[j] < tableauATrier[i]; j--)
-        {
-            tableauATrier[j] = tableauATrier[j-1];
+void triInsertion(float *tableauATrier){
+    int taille = obtenirTaille(tableauATrier), compteur = 0;
+    float valeurActuel = 0;
+
+    for (int i = 1; i < taille; i++) {
+        valeurActuel = tableauATrier[i];
+        compteur = i;
+        while (compteur > 0 && tableauATrier[compteur - 1] > valeurActuel) {
+            tableauATrier[compteur] = tableauATrier[compteur - 1];
+            compteur--;
         }
-        tableauATrier[j] = tableauATrier[i];
+        tableauATrier[compteur] = valeurActuel;
     }
     
 }

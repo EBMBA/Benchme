@@ -67,6 +67,7 @@ void traiterChoix(int choix, float *val){
         case 2:
             printf("2. Tri par selection\n");
             
+            affiche(val, taille);
             break;
         
         case 3:
