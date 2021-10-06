@@ -60,6 +60,8 @@ void traiterChoix(int choix, float *val){
         {
         case 1:
             printf("1. Tri a bulle\n");
+            triBulle(val);
+            affiche(val,taille);
             break;
 
         case 2:

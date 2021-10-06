@@ -7,13 +7,14 @@ void triBulle(float *tab){
     int j = 0;
     float tampon = 0;
     int taille = obtenirTaille(tab);
-    for ( i = 0; i <taille ; i++)
-    {
-        if (tab[i]> tab[i+1])
+    for ( i = 0; i <taille-1 ; i++)
+        for ( j = 0; j < taille-i-2; j++)
         {
-            tampon = tab[i+1];
-            tab[i+1]= tab[i];
-            tab[i] = tab[i+1];
-        }   
-    }
+            if (tab[j]> tab[j+1])
+            {
+            tampon = tab[j+1];
+            tab[j+1]= tab[j];
+            tab[j] = tampon;
+            }   
+        }
 }
