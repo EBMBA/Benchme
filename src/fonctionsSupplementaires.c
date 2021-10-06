@@ -53,7 +53,7 @@ void traiterChoix(int choix, float *val){
 
     remplirTab(val, taille);
     
-    affice(val, taille);
+    affiche(val, taille);
     
     switch (choix)
         {
@@ -119,20 +119,20 @@ void remplirTab(float TableauARemplir[], int taille){
     for (int h = 0; h < taille; h++)
     {
         
-        //float num = ( ((float)rand() / (float)(RAND_MAX)) * 100.0 );
-        int num = ( rand() % ( 99 - 1  + 1 ) );
+        float num = ( ((float)rand() / (float)(RAND_MAX)) * 100.0 );
+        //int num = ( rand() % ( 99 - 1  + 1 ) );
         TableauARemplir[h] = num;
         
     }
 
 }
 
-void affiche(int *tableau, int tailleTableau)
+void affiche(float *tableau, int tailleTableau)
 {
     int i;
  
     for (i = 0 ; i < tailleTableau ; i++)
     {
-        printf("%d\n", tableau[i]);
+        printf("%f\n", tableau[i]);
     }
 }
