@@ -3,10 +3,11 @@
 #include <time.h>
 #include "../include/triBulle.h"
 #include "../include/triInsertion.h"
+#include "../include/triParPas.h"
 
 void afficherMenu(){
     printf("Choissisez une methode de tri :\n");
-    for (size_t i = 1; i < 5; i++)
+    for (size_t i = 1; i < 6; i++)
     {
         switch (i)
         {
@@ -78,7 +79,8 @@ void traiterChoix(int choix, float *val){
         
         case 4:
             printf("4. Tri par pas\n");
-            
+            triParPas(val,taille);
+            affiche(val,taille);
             break;
 
         default:

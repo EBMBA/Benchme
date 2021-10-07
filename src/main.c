@@ -11,7 +11,7 @@ int main()
 	do
 	{
 		choix = 0;
-		while ( choix < 1|| choix > 5)
+		while ( choix < 1 || choix > 5)
 		{
 			afficherMenu();
 			scanf("%d", &choix);
