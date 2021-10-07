@@ -4,6 +4,7 @@
 #include "../include/triBulle.h"
 #include "../include/triInsertion.h"
 #include "../include/triParTas.h"
+#include "../include/triSelection.h"
 
 void afficherMenu(){
     printf("Choissisez une methode de tri :\n");
@@ -71,7 +72,7 @@ void traiterChoix(int choix, float *val){
         case 2:
             printf("2. Tri par selection\n");
             debut = clock();
-
+            triSelection(val);
             fin =  clock();
             temps = (float)(fin-debut)/CLOCKS_PER_SEC;
             affiche(val, taille);
