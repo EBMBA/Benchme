@@ -41,8 +41,7 @@ void afficherMenu(){
 
 void traiterChoix(int choix, float *val){
     int taille = 0, resultat = 0;
-    //char *valeurHexadecimal;
-    unsigned int nombreDecimal = 0;
+    float debut = 0.0, fin = 0.0, temps = 0.0;
     printf("Entrez la taille du tableau : " );
     scanf("%d", &taille);
 
@@ -61,26 +60,42 @@ void traiterChoix(int choix, float *val){
         {
         case 1:
             printf("1. Tri a bulle\n");
+            debut = clock();
             triBulle(val);
+            fin =  clock();
+            temps = (float)(fin-debut)/CLOCKS_PER_SEC;
             affiche(val,taille);
+            printf("temps = %f\n", temps);
             break;
 
         case 2:
             printf("2. Tri par selection\n");
-            
+            debut = clock();
+
+            fin =  clock();
+            temps = (float)(fin-debut)/CLOCKS_PER_SEC;
             affiche(val, taille);
+            printf("temps = %f\n", temps);
             break;
         
         case 3:
             printf("3. Tri par insertion\n");
+            debut = clock();
             triInsertion(val);
+            fin =  clock();
+            temps = (float)(fin-debut)/CLOCKS_PER_SEC;
             affiche(val, taille);
+            printf("temps = %f\n", temps);
             break;
         
         case 4:
             printf("4. Tri par tas\n");
+            debut = clock();
             triParTas(val,taille);
+            fin =  clock();
+            temps = (float)(fin-debut)/CLOCKS_PER_SEC;
             affiche(val,taille);
+            printf("temps = %f\n", temps);
             break;
 
         default:

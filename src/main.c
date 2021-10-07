@@ -18,8 +18,10 @@ int main()
 		}
 		
 		// Partie du traitement du choix :
-		traiterChoix(choix, valeur);
-		
+		if (choix != 5)
+		{
+			traiterChoix(choix, valeur);
+		}
 	} while (choix != 5);
 	
 	printf("Thank you :D Goodbye !\n");
