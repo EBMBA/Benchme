@@ -1,1 +1,1 @@
-void triInsertion(int *tableauATrier);
+void triInsertion(float *tableauATrier);

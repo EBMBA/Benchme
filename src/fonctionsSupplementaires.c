@@ -40,7 +40,7 @@ void afficherMenu(){
 }
 
 void traiterChoix(int choix, float *val){
-    int taille = 0, resultat = 0;
+    int taille = 0;
     float debut = 0.0, fin = 0.0, temps = 0.0;
     printf("Entrez la taille du tableau : " );
     scanf("%d", &taille);
@@ -140,8 +140,7 @@ void remplirTab(float TableauARemplir[], int taille){
     for (int h = 0; h < taille; h++)
     {
         
-        float num = ( ((float)rand() / (float)(RAND_MAX)) * 100.0 );
-        //int num = ( rand() % ( 99 - 1  + 1 ) );
+        float num = ( ((float)rand() / (float)(RAND_MAX)) * 10000000000.0);
         TableauARemplir[h] = num;
         
     }
