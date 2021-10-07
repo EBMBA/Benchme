@@ -13,4 +13,10 @@ Les temps d'execution de chacun des tri seront mesuré et exporter au format csv
 
 # Documentation
 
+# Résultats attendus
+* tri a bulle 
+* tri par sélection 
+* tri par insertion 
+* tri pas tas
 
+# Evolutions à venir
