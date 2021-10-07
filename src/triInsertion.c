@@ -14,5 +14,4 @@ void triInsertion(float *tableauATrier){
         }
         tableauATrier[compteur] = valeurActuel;
     }
-    
 }
