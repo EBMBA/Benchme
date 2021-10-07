@@ -23,7 +23,7 @@ void tamiser(float tableauATamiser[], int noeud, int longueur){
     }
 }
 
-void triParPas(float tableauATrier[], int taille){
+void triParTas(float tableauATrier[], int taille){
     for (int i = taille/2 - 1; i >= 0; i--)
     {
         tamiser(tableauATrier, i, taille);

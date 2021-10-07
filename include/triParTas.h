@@ -1,0 +1,1 @@
+void triParTas(float tableauATrier[], int taille);

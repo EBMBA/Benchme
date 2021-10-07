@@ -1,1 +1,0 @@
-void triParPas(float tableauATrier[], int taille);
