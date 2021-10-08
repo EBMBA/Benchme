@@ -23,6 +23,14 @@
 #include "../include/triParTas.h"
 #include "../include/triSelection.h"
 
+
+/**
+ * @brief 
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int main(int argc, char const *argv[])
 {
 	// Partie des declarations des variables:

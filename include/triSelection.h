@@ -9,8 +9,8 @@
  * 
  */
 
-#ifndef TRIINSERTION_H
-#define TRIINSERTION_H
+#ifndef TRISELECTION_H
+#define TRISELECTION_H
 
 /**
  * @brief algorithmes de tri de type "tri par selection"

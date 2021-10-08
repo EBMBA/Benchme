@@ -1,6 +1,21 @@
+/**
+ * @file triInsertion.c
+ * @author Kubilay KAPLAN et Emile METRAL (kubilay.kpl@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2021-10-08
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 #include <stdio.h>
 #include "../include/fonctionsSupplementaires.h"
 
+/**
+ * @brief 
+ * 
+ * @param tableauATrier 
+ */
 void triInsertion(float *tableauATrier){
     int taille = obtenirTaille(tableauATrier), compteur = 0;
     float valeurActuel = 0;

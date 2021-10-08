@@ -1,6 +1,23 @@
+/**
+ * @file triParTas.c
+ * @author Kubilay KAPLAN et Emile METRAL (kubilay.kpl@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2021-10-08
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 #include <stdio.h>
 #include "../include/fonctionsSupplementaires.h"
 
+/**
+ * @brief 
+ * 
+ * @param tableauATamiser 
+ * @param noeud 
+ * @param longueur 
+ */
 void tamiser(float tableauATamiser[], int noeud, int longueur){
     int j = 2*noeud;
     while (j <= longueur)
@@ -23,6 +40,12 @@ void tamiser(float tableauATamiser[], int noeud, int longueur){
     }
 }
 
+/**
+ * @brief 
+ * 
+ * @param tableauATrier 
+ * @param taille 
+ */
 void triParTas(float tableauATrier[], int taille){
     for (int i = taille/2 - 1; i >= 0; i--)
     {

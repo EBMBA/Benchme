@@ -1,3 +1,4 @@
+# doxygen -g doxygenFile to generate doxygen config file
 #
 # 'make'        build executable file 'main'
 # 'make clean'  removes all .o and executable files
@@ -26,6 +27,7 @@ INCLUDE	:= include
 # define lib directory
 LIB		:= lib
 
+DOXYGENCONF = doxygenFile
 ifeq ($(OS),Windows_NT)
 MAIN	:= main.exe
 SOURCEDIRS	:= $(SRC)
@@ -89,3 +91,6 @@ clean:
 run: all
 	./$(OUTPUTMAIN)
 	@echo Executing 'run: all' complete!
+
+documentation:
+	-doxygen $(DOXYGENCONF)
