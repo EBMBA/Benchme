@@ -148,6 +148,16 @@ void remplirTab(float TableauARemplir[], int taille){
 
 }
 
+void copierTab(const float *tableauACopier, float *tableauCopie){
+    int taille = obtenirTaille(tableauACopier);
+
+    for (int i = 0; i < taille; i++)
+    {
+        tableauCopie[i] = tableauACopier[i];
+    }
+
+}
+
 void affiche(float *tableau, int tailleTableau)
 {
     int i;
