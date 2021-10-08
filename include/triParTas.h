@@ -1,6 +1,6 @@
 /**
  * @file triParTas.h
- * @author your name (you@domain.com)
+ * @author Kubilay KAPLAN et Emile METRAL (kubilay.kpl@gmail.com)
  * @brief 
  * @version 0.1
  * @date 2021-10-08
@@ -9,4 +9,15 @@
  * 
  */
 
+#ifndef TRIPARTAS_H
+#define TRIPARTAS_H
+
+/**
+ * @brief 
+ * 
+ * @param tableauATrier 
+ * @param taille 
+ */
 void triParTas(float tableauATrier[], int taille);
+
+#endif

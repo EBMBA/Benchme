@@ -1,6 +1,6 @@
 /**
  * @file fonctionsSupplementaires.c
- * @author your name (you@domain.com)
+ * @author Kubilay KAPLAN et Emile METRAL (kubilay.kpl@gmail.com)
  * @brief 
  * @version 0.1
  * @date 2021-10-08
@@ -16,6 +16,10 @@
 #include "../include/triParTas.h"
 #include "../include/triSelection.h"
 
+/**
+ * @brief 
+ * 
+ */
 void afficherMenu(){
     printf("Choissisez une methode de tri :\n");
     for (size_t i = 1; i < 6; i++)
@@ -50,6 +54,12 @@ void afficherMenu(){
     
 }
 
+/**
+ * @brief 
+ * 
+ * @param choix 
+ * @param val 
+ */
 void traiterChoix(int choix, float *val){
     int taille = 0;
     float debut = 0.0, fin = 0.0, temps = 0.0;
@@ -114,6 +124,12 @@ void traiterChoix(int choix, float *val){
     }
 }
 
+/**
+ * @brief 
+ * 
+ * @param tab 
+ * @return int 
+ */
 int obtenirTaille(float *tab){
     int taille = 0;
 
@@ -125,6 +141,12 @@ int obtenirTaille(float *tab){
     return taille;
 }
 
+/**
+ * @brief 
+ * 
+ * @param TableauAInverser 
+ * @return float* 
+ */
 float *inverserTab(float *TableauAInverser){
     float *tableauInverser = NULL;
     unsigned int i = obtenirTaille(TableauAInverser);
@@ -144,6 +166,12 @@ float *inverserTab(float *TableauAInverser){
     return tableauInverser;
 }
 
+/**
+ * @brief 
+ * 
+ * @param TableauARemplir 
+ * @param taille 
+ */
 void remplirTab(float TableauARemplir[], int taille){
     srand(time(0));
     
@@ -158,6 +186,12 @@ void remplirTab(float TableauARemplir[], int taille){
 
 }
 
+/**
+ * @brief 
+ * 
+ * @param tableau 
+ * @param tailleTableau 
+ */
 void affiche(float *tableau, int tailleTableau)
 {
     int i;

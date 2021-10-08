@@ -1,6 +1,6 @@
 /**
  * @file main.c
- * @author your name (you@domain.com)
+ * @author Kubilay KAPLAN et Emile METRAL (kubilay.kpl@gmail.com)
  * @brief 
  * @version 0.1
  * @date 2021-10-08
@@ -14,10 +14,14 @@
 #include "../include/triBulle.h"
 #include "../include/triInsertion.h"
 #include "../include/triParTas.h"
+
 /**
- * @author KAPLAN Kubilay & METRAL Emile 
- * Execute l'algorithme de tri choisi avec un tableau de taille choisi par l'utilisateur en fournissant des statistiques.
-**/
+ * @brief 
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int main(int argc, char const *argv[])
 {
 	// Partie des declarations des variables:

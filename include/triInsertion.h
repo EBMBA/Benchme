@@ -9,4 +9,14 @@
  * 
  */
 
+#ifndef TRIINSERTION_H
+#define TRIINSERTION_H
+
+/**
+ * @brief 
+ * 
+ * @param tableauATrier 
+ */
 void triInsertion(float *tableauATrier);
+
+#endif
