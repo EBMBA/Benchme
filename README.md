@@ -3,11 +3,8 @@
 
 
 # But du TP
-Dans ce Tp nous allons implémenter 4 algorithmes de tri permettant un tri croissant ou décroissant d’un tableau de nombre à virgules :
-* tri a bulle 
-* tri par sélection 
-* tri par insertion 
-* tri pas tas
+Dans ce Tp nous allons implémenter 4 algorithmes de tri (tri a bulle, tri par sélection, tri par insertion, tri pas tas)
+permettant un tri croissant ou décroissant d’un tableau de nombre a virgules.
 
 Les temps d'exécution de chacun des tris seront mesurés et exporter au format Csv. Ces benchmarks permettront d’avoir une estimation de la complexité temporelle.
 
