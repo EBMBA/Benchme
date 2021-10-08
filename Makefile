@@ -86,6 +86,7 @@ $(MAIN): $(OBJECTS)
 clean:
 	$(RM) $(OUTPUTMAIN)
 	$(RM) $(call FIXPATH,$(OBJECTS))
+	$(RM) resultat.csv
 	@echo Cleanup complete!
 
 run: all

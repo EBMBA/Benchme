@@ -15,20 +15,6 @@
 /**
  * @brief 
  * 
- */
-void afficherMenu();
-
-/**
- * @brief 
- * 
- * @param choix 
- * @param val 
- */
-void traiterChoix(int choix, float *val);
-
-/**
- * @brief 
- * 
  * @param tab 
  * @return int 
  */
