@@ -22,6 +22,7 @@
 #include "../include/triInsertion.h"
 #include "../include/triParTas.h"
 #include "../include/triSelection.h"
+#include "../include/tempsExecution.h"
 
 
 /**
@@ -36,10 +37,9 @@ int main(int argc, char const *argv[])
 	// Partie des declarations des variables:
     float *valeur = NULL, *valeurBulle = NULL, *valeurInsertion = NULL, *valeurSelection = NULL, *valeurTas = NULL;
 	float moyenneInsertion = 0.0, moyenneBulle = 0.0, moyenneTas = 0.0, moyenneSelection = 0.0;
-	float sommmeInsertion = 0.0, sommeBulle = 0.0, sommeTas = 0.0, sommeSelection = 0.0;
-	int tableauTaille[6] = {100, 1000, 10000, 100000, 1000000, 10000000}; 
+	float sommeInsertion = 0.0, sommeBulle = 0.0, sommeTas = 0.0, sommeSelection = 0.0;
+	int tableauTaille[6] = {100, 1000, 10000, 100000, 1000000, 10000000}, indexMaxTableau = 3; 
     int choix = 0, taille = 0;
-	long positionActuelle = 0, positionFinTab = 0, nombreDeDeplacement = 0;
     clock_t debut = 0.0, fin = 0.0;
 	float temps = 0.0;
 	FILE* fichier = NULL;
@@ -64,14 +64,8 @@ int main(int argc, char const *argv[])
 			exit(0); // On arrête tout
 		}
 	}
-	    
-    //affiche(valeur, taille);
-	// plusieurs tailles avec une moyenne des temps 
 
-
-	
-	 // Si l'utilisateur a rentré un argument. 
-	 
+	// Si l'utilisateur a rentré un argument. 
 	if (argv[1])
 	{
 		fichier = fopen(argv[1],"w");
@@ -82,74 +76,136 @@ int main(int argc, char const *argv[])
 		if (fichier != NULL && taille != 0)
 		{
 			fprintf(fichier, "NOM,TEMPS,NOMBRE DE VALEURS\n");
-
-			remplirTab(valeur, taille);
-
-			copierTab(valeur, valeurBulle);
-			copierTab(valeur, valeurInsertion);
-			copierTab(valeur, valeurSelection);
-			copierTab(valeur, valeurTas);
-
-			
-			// On rentre les valeurs si le tableau en a moins de 10. 
-			
-			if (taille < 10)
+			for (size_t i = 1; i < 4; i++)
 			{
-				for (int i = 0; i < 10; i++)
-				{
-					fprintf(fichier, "%f ", valeur[i]);
+					
+
+				remplirTab(valeur, taille);
+
+				copierTab(valeur, valeurBulle);
+				copierTab(valeur, valeurInsertion);
+				copierTab(valeur, valeurSelection);
+				copierTab(valeur, valeurTas);
+
+				/**
+				 * @brief On rentre les valeurs si le tableau en a moins de 10. 
+				 * 
+				 */
+				if (taille < 10)
+				{	
+					while (!(choix == 1 || choix == 2))
+					{
+						printf("Tapez 1 pour croissant ou 2 pour decroissant : ");
+						scanf("%d",&choix);
+					}
+					
+					
+					for (int i = 0; i < taille; i++)
+					{
+						fprintf(fichier, "%f ", valeur[i]);
+					}
+					fprintf(fichier, "\n");
 				}
+
+				printf("%d. Tri a bulle\n",i);
+					temps =tempsExecutionAvecTaille(&triBulle,valeurBulle, taille);
+					
+					// Changement de l'ordre en fonction du choix de l'utilisateur 
+					if (choix == 2)
+					{
+						valeurBulle = inverserTab(valeurBulle, taille);
+					}
+
+					printf("temps = %f\n", temps);
+					sommeBulle += temps;
+					fprintf(fichier, "'Tri a bulle',%f,%d\n", temps, taille);
+					// Si le tableau a moins de 10 valeur on affiche le tableau apres l'algorithme de tri
+					if (taille < 10)
+					{
+						for (int i = 0; i < taille; i++)
+						{
+							fprintf(fichier, "%f ", valeurBulle[i]);
+						}
+						fprintf(fichier, "\n");
+					}
+			
+				printf("%d. Tri par selection\n", i+1);
+					temps =tempsExecutionAvecTaille(&triSelection,valeurSelection,taille);
+
+					// Changement de l'ordre en fonction du choix de l'utilisateur 
+					if (choix == 2)
+					{
+						valeurSelection = inverserTab(valeurSelection, taille);
+					}
+
+					printf("temps = %f\n", temps);
+					sommeSelection += temps;
+					fprintf(fichier, "'Tri par selection',%f,%d\n", temps, taille);
+					// Si le tableau a moins de 10 valeur on affiche le tableau apres l'algorithme de tri
+					if (taille < 10)
+					{
+						for (int i = 0; i < taille; i++)
+						{
+							fprintf(fichier, "%f ", valeurSelection[i]);
+						}
+						fprintf(fichier, "\n");
+					}
+			
+				printf("%d Tri par insertion\n", i+2);
+					temps =tempsExecutionAvecTaille(&triInsertion,valeurInsertion,taille);
+
+					// Changement de l'ordre en fonction du choix de l'utilisateur 
+					if (choix == 2)
+					{
+						valeurInsertion = inverserTab(valeurInsertion, taille);
+					}
+
+					printf("temps = %f\n", temps);
+					sommeInsertion += temps;
+					fprintf(fichier, "'Tri par insertion',%f,%d\n", temps, taille);
+					// Si le tableau a moins de 10 valeur on affiche le tableau apres l'algorithme de tri
+					if (taille < 10)
+					{
+						for (int i = 0; i < taille; i++)
+						{
+							fprintf(fichier, "%f ", valeurInsertion[i]);
+						}
+						fprintf(fichier, "\n");
+					}
+
+				printf("%d. Tri par tas\n", i+3);
+					temps = tempsExecutionAvecTaille(&triParTas, valeurTas, taille);
+
+					// Changement de l'ordre en fonction du choix de l'utilisateur 
+					if (choix == 2)
+					{
+						valeurTas = inverserTab(valeurTas, taille);
+					}
+
+					printf("temps = %f\n", temps);
+					sommeTas += temps;
+					fprintf(fichier, "'Tri par tas',%f,%d\n", temps, taille);
+					// Si le tableau a moins de 10 valeur on affiche le tableau apres l'algorithme de tri
+					if (taille < 10)
+					{
+						for (int i = 0; i < taille; i++)
+						{
+							fprintf(fichier, "%f ", valeurTas[i]);
+						}
+						fprintf(fichier, "\n");
+					}
+				
 				fprintf(fichier, "\n");
 			}
-
-			printf("1. Tri a bulle\n");
-				debut = clock();
-				triBulle(valeurBulle);
-				fin =  clock();
-				temps = (float)(fin-debut)/CLOCKS_PER_SEC;
-				sommeBulle += temps;
-				printf("temps = %f\n", temps);
-				fprintf(fichier, "'Tri a bulle',%f,%d\n", temps, taille);
-		
-			printf("2. Tri par selection\n");
-				debut = clock();
-				triSelection(valeurSelection);
-				fin =  clock();
-				temps = (float)(fin-debut)/CLOCKS_PER_SEC;
-				sommeSelection += temps;
-				printf("temps = %f\n", temps);
-				fprintf(fichier, "'Tri par selection',%f,%d\n", temps, taille);
-		
-			printf("3. Tri par insertion\n");
-				debut = clock();
-				triInsertion(valeurInsertion);
-				fin =  clock();
-				temps = (float)(fin-debut)/CLOCKS_PER_SEC;
-				sommmeInsertion += temps;
-				printf("temps = %f\n", temps);
-				fprintf(fichier, "'Tri par insertion',%f,%d\n", temps, taille);
-
-			printf("4. Tri par tas\n");
-				debut = clock();
-				triParTas(valeurTas,taille);
-				fin =  clock();
-				temps = (float)(fin-debut)/CLOCKS_PER_SEC;
-				printf("temps = %f\n", temps);
-				fprintf(fichier, "'Tri par tas',%f,%d\n", temps, taille);
-
-			if (taille < 10)
-			{
-				for (int i = 0; i < 10; i++)
-				{
-					fprintf(fichier, "%f", valeur[i]);
-				}
-				fprintf(fichier, "\n");
-			}
-
 			
-			
-
-			fprintf(fichier, "'Moyenne Tri par tas',%f,%d\n", temps, taille);
+			// Calcul et écriture de la moyenne 
+			moyenneBulle = sommeBulle / indexMaxTableau;
+			moyenneInsertion = sommeInsertion / indexMaxTableau;
+			moyenneSelection= sommeSelection / indexMaxTableau;
+			moyenneTas = sommeTas / indexMaxTableau;
+			fprintf(fichier, "\n\n\n");
+			fprintf(fichier, " ,TriBulle,TriInsertion,TriSelection,TriTas\n");
+			fprintf(fichier, "%d,%f,%f,%f,%f\n",taille, moyenneBulle, moyenneInsertion, moyenneSelection, moyenneTas);
 
 			fclose(fichier);
 		}
@@ -159,8 +215,8 @@ int main(int argc, char const *argv[])
 		 
 		else if (fichier != NULL && taille == 0)
 		{
-			fprintf(fichier, "NOM,TEMPS,NOMBRE DE VALEURS\n");
-			for (int i = 0; i < 3; i++)
+			//fprintf(fichier, "NOM,TEMPS,NOMBRE DE VALEURS\n");
+			for (int i = 0; i < indexMaxTableau; i++)
 			{
 				taille = tableauTaille[i];
 				valeur = malloc( taille * sizeof(float)); 
@@ -176,11 +232,11 @@ int main(int argc, char const *argv[])
 
 				for (int j = 0; j < 3; j++)
 				{
-					if (j > 0 || i > 0)
+					/*if (j > 0 || i > 0)
 					{
 						nombreDeDeplacement = positionActuelle - positionFinTab;
 						fseek(fichier, nombreDeDeplacement, SEEK_CUR);
-					}
+					}*/
 					
 					remplirTab(valeur, taille);
 
@@ -191,74 +247,41 @@ int main(int argc, char const *argv[])
 
 
 					printf("1. Tri a bulle\n");
-						debut = clock();
-						triBulle(valeurBulle);
-						fin =  clock();
-						temps = (float)(fin-debut)/CLOCKS_PER_SEC;
+						temps =tempsExecutionAvecTaille(&triBulle,valeurBulle, taille);
+						sommeBulle += temps;
 						printf("temps = %f\n", temps);
-						fprintf(fichier, "'Tri a bulle',%f,%d\n", temps, taille);
 			
 					printf("2. Tri par selection\n");
-						debut = clock();
-						triSelection(valeurSelection);
-						fin =  clock();
-						temps = (float)(fin-debut)/CLOCKS_PER_SEC;
+						temps =tempsExecutionAvecTaille(&triSelection,valeurSelection,taille);
+						sommeSelection += temps;
 						printf("temps = %f\n", temps);
-						fprintf(fichier, "'Tri par selection',%f,%d\n", temps, taille);
 			
 					printf("3. Tri par insertion\n");
-						debut = clock();
-						triInsertion(valeurInsertion);
-						fin =  clock();
-						temps = (float)(fin-debut)/CLOCKS_PER_SEC;
+						temps =tempsExecutionAvecTaille(&triInsertion,valeurInsertion,taille);
+						sommeInsertion += temps;
 						printf("temps = %f\n", temps);
-						fprintf(fichier, "'Tri par insertion',%f,%d\n", temps, taille);
 
 					printf("4. Tri par tas\n");
-						debut = clock();
-						triParTas(valeurTas,taille);
-						fin =  clock();
-						temps = (float)(fin-debut)/CLOCKS_PER_SEC;
+						temps = tempsExecutionAvecTaille(&triParTas, valeurTas, taille);
 						sommeTas += temps;
 						printf("temps = %f\n", temps);
-						fprintf(fichier, "'Tri par tas',%f,%d\n", temps, taille);
-					
-					positionActuelle =ftell(fichier);
 				}
-
-				if (i == 0)
-				{
-					for (size_t l = 0; l < 10; l++)
-					{
-						fprintf(fichier, "\n");
-					}
-				}
-				
 					
 				// Calcul et écriture de la moyenne 
-				moyenneBulle = sommeBulle / 3;
-				moyenneInsertion = sommmeInsertion / 3;
-				moyenneSelection= sommeSelection / 3;
-				moyenneTas = sommeTas / 3;
+				moyenneBulle = sommeBulle / indexMaxTableau;
+				moyenneInsertion = sommeInsertion / indexMaxTableau;
+				moyenneSelection= sommeSelection / indexMaxTableau;
+				moyenneTas = sommeTas / indexMaxTableau;
 
 				if (i == 0)
 				{
-					fprintf(fichier, "\n");
-					fprintf(fichier, "NOM,MOYENNE DES TEMPS,NOMBRE DE VALEURS\n");
-					fprintf(fichier, "'Tri par tas',%f,%d\n", moyenneTas, taille);
-					fprintf(fichier, "'Tri par insertion',%f,%d\n", moyenneInsertion, taille);
-					fprintf(fichier, "'Tri par selection',%f,%d\n", moyenneSelection, taille);
-					fprintf(fichier, "'Tri a bulle',%f,%d\n", moyenneBulle, taille);
+					fprintf(fichier, " ,TriBulle,TriInsertion,TriSelection,TriTas\n");
+					fprintf(fichier, "%d,%f,%f,%f,%f\n",taille, moyenneBulle, moyenneInsertion, moyenneSelection, moyenneTas);
+
 				}
 				else{
-					fseek(fichier, 0, SEEK_END);
-					fprintf(fichier, "'Tri par tas',%f,%d\n", moyenneTas, taille);
-					fprintf(fichier, "'Tri par insertion',%f,%d\n", moyenneInsertion, taille);
-					fprintf(fichier, "'Tri par selection',%f,%d\n", moyenneSelection, taille);
-					fprintf(fichier, "'Tri a bulle',%f,%d\n", moyenneBulle, taille);
+					fprintf(fichier, "%d,%f,%f,%f,%f\n",taille, moyenneBulle, moyenneInsertion, moyenneSelection, moyenneTas);
 				}
-
-				positionFinTab =ftell(fichier);
 				
 			}
 

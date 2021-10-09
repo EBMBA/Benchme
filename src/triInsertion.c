@@ -16,8 +16,9 @@
  * 
  * @param tableauATrier 
  */
-void triInsertion(float *tableauATrier){
-    int taille = obtenirTaille(tableauATrier), compteur = 0;
+void triInsertion(float *tableauATrier, int taille){
+    //int taille = obtenirTaille(tableauATrier);
+    int compteur = 0;
     float valeurActuel = 0;
 
     for (int i = 1; i < taille; i++) {

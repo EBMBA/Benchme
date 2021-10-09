@@ -17,12 +17,12 @@
  * 
  * @param tab tableau a trier
  */
-void triBulle(float *tab){
+void triBulle(float *tab, int taille){
     int i = 0;
     int j = 0;
     float tampon = 0;
-    int taille = obtenirTaille(tab);
-    for ( i = 0; i <taille ; i++)
+    //int taille = obtenirTaille(tab);
+    for ( i = 0; i < taille ; i++)
         for ( j = 0; j < taille-1; j++)
         {
             if (tab[j]> tab[j+1])

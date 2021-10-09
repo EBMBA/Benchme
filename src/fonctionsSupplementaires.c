@@ -39,23 +39,24 @@ int obtenirTaille(float *tab){
  * @param TableauAInverser 
  * @return float* 
  */
-float *inverserTab(float *TableauAInverser){
+float *inverserTab(float *TableauAInverser, int taille){
     float *tableauInverser = NULL;
-    unsigned int i = obtenirTaille(TableauAInverser);
-    //printf("%d", i);
-    tableauInverser = malloc(i * sizeof(float));
+    //unsigned int i = obtenirTaille(TableauAInverser);
+    //printf("%d", taille);
+    tableauInverser = malloc((taille+1) * sizeof(float));
 
     // inversion
-    i--;
-    unsigned int p = i;
-    for (unsigned int n = 0; n <= p; n++)
+    taille--;
+    int p = taille;
+    for (int n = 0; n <= p; n++)
     {
-        tableauInverser[n] = TableauAInverser[i];
-        //printf("Resultat : %s\nInversion Resultat : %s\n",Tab, tableauInverser);
-        i--; 
+        tableauInverser[n] = TableauAInverser[taille];
+        //printf("Resultat : %s\nInversion Resultat : %s\n",TableauAInverser, tableauInverser);
+        taille--; 
     }
 
     return tableauInverser;
+    free(tableauInverser);
 }
 
 /**

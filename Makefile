@@ -31,7 +31,7 @@ OUT := out
 
 DOXYGENCONF = doxygenFile
 ifeq ($(OS),Windows_NT)
-MAIN	:= main.exe
+MAIN	:= benchme.exe
 SOURCEDIRS	:= $(SRC)
 INCLUDEDIRS	:= $(INCLUDE)
 LIBDIRS		:= $(LIB)
@@ -39,7 +39,7 @@ FIXPATH = $(subst /,\,$1)
 RM			:= del /q /f
 MD	:= mkdir
 else
-MAIN	:= main
+MAIN	:= benchme
 SOURCEDIRS	:= $(shell find $(SRC) -type d)
 INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
 LIBDIRS		:= $(shell find $(LIB) -type d)
@@ -89,7 +89,7 @@ clean:
 	$(RM) $(OUTPUTMAIN)
 	$(RM) $(call FIXPATH,$(OBJECTS))
 	$(RM) *.csv
-	rm -r out
+	$(RM) -r out
 	@echo Cleanup complete!
 
 run: all

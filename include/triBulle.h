@@ -16,6 +16,6 @@
  * 
  * @param tableau tableau a trier
  */
-void triBulle(float *tab);
+void triBulle(float *tab, int taille);
 
 #endif //TRIBULLE_H

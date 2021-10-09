@@ -15,18 +15,24 @@
 /**
  * @brief 
  * 
- * @param tab 
- * @return int 
+ * @param Tab 
+ * @return float* 
  */
-int obtenirTaille(float *tab);
+float *inverserTab(float *Tab, int taille);
 
 /**
  * @brief 
  * 
- * @param Tab 
- * @return float* 
+ * @param tableauACopier 
+ * @param tableauCopie 
  */
-float *inverserTab(float *Tab);
 void copierTab(const float *tableauACopier, float *tableauCopie);
 
+/**
+ * @brief 
+ * 
+ * @param TableauARemplir 
+ * @param taille 
+ */
+void remplirTab(float TableauARemplir[], int taille);
 #endif

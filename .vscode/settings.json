@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.c": "c",
-        "fonctionssupplementaires.h": "c"
+        "fonctionssupplementaires.h": "c",
+        "stdlib.h": "c"
     }
 }

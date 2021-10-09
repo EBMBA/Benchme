@@ -17,9 +17,9 @@
  * 
  * @param tab tableau a trier
  */
-void triSelection(float *tab){
+void triSelection(float *tab, int taille){
      
-     int taille = obtenirTaille(tab);
+     //int taille = obtenirTaille(tab);
      float tampon;
      for (int i = 0; i < taille; i++)
      {

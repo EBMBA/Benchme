@@ -17,6 +17,6 @@
  * 
  * @param tableauATrier 
  */
-void triInsertion(float *tableauATrier);
+void triInsertion(float *tableauATrier, int taille);
 
 #endif
