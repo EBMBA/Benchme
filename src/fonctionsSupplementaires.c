@@ -1,7 +1,7 @@
 /**
  * @file fonctionsSupplementaires.c
  * @author Kubilay KAPLAN et Emile METRAL (kubilay.kpl@gmail.com)
- * @brief 
+ * @brief Fonctions supplementaires
  * @version 0.1
  * @date 2021-10-08
  * 

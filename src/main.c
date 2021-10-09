@@ -66,18 +66,16 @@ int main(int argc, char const *argv[])
 	// plusieurs tailles avec une moyenne des temps 
 
 
-	/**
-	 * @brief Si l'utilisateur a rentré un argument. 
-	 * 
-	 */
+	
+	 // Si l'utilisateur a rentré un argument. 
+	 
 	if (argv[1])
 	{
 		fichier = fopen(argv[1],"w");
 
-		/**
-		 * @brief Si utilisateur a choisi une taille. 
-		 * 
-		 */
+		
+		//@brief Si utilisateur a choisi une taille. 
+		 
 		if (fichier != NULL && taille != 0)
 		{
 			fprintf(fichier, "NOM,TEMPS,NOMBRE DE VALEURS\n");
@@ -89,10 +87,9 @@ int main(int argc, char const *argv[])
 			copierTab(valeur, valeurSelection);
 			copierTab(valeur, valeurTas);
 
-			/**
-			 * @brief On rentre les valeurs si le tableau en a moins de 10. 
-			 * 
-			 */
+			
+			// On rentre les valeurs si le tableau en a moins de 10. 
+			
 			if (taille < 10)
 			{
 				for (int i = 0; i < 10; i++)
@@ -145,10 +142,10 @@ int main(int argc, char const *argv[])
 
 			fclose(fichier);
 		}
-		/**
-		 * @brief Si utilisateur choisi les tests automatiques.
-		 * 
-		 */
+		
+		 //Si utilisateur choisi les tests automatiques.
+		 
+		 
 		else if (fichier != NULL && taille == 0)
 		{
 			fprintf(fichier, "NOM,TEMPS,NOMBRE DE VALEURS\n");
@@ -217,10 +214,10 @@ int main(int argc, char const *argv[])
 		}
 
 	}
-	/**
-	 * @brief Si l'utilisateur n'a pas rentré d'argument. 
-	 * 
-	 */
+	
+	 
+	 
+	// Si l'utilisateur n'a pas rentré d'argument.
 	else{
 		printf("Merci de définir le fichier où les resultats seront envoyés en argument du programme : benchme resultat.csv\n");
 	}

@@ -1,7 +1,7 @@
 /**
  * @file triBulle.c
  * @author Kubilay KAPLAN et Emile METRAL (kubilay.kpl@gmail.com)
- * @brief 
+ * @brief Programme pour creer un algorithmes de tri de type "a bulle" 
  * @version 0.1
  * @date 2021-10-07
  * 
@@ -22,14 +22,14 @@ void triBulle(float *tab){
     int j = 0;
     float tampon = 0;
     int taille = obtenirTaille(tab);
-    for ( i = 0; i <taille-1 ; i++)
-        for ( j = 0; j < taille-i-2; j++)
+    for ( i = 0; i <taille ; i++)
+        for ( j = 0; j < taille-1; j++)
         {
             if (tab[j]> tab[j+1])
             {
-            tampon = tab[j+1];
-            tab[j+1]= tab[j];
-            tab[j] = tampon;
+                tampon = tab[j+1];
+                tab[j+1]= tab[j];
+                tab[j] = tampon;
             }   
         }
 }

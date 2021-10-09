@@ -27,6 +27,8 @@ INCLUDE	:= include
 # define lib directory
 LIB		:= lib
 
+OUT := out
+
 DOXYGENCONF = doxygenFile
 ifeq ($(OS),Windows_NT)
 MAIN	:= main.exe
@@ -86,6 +88,8 @@ $(MAIN): $(OBJECTS)
 clean:
 	$(RM) $(OUTPUTMAIN)
 	$(RM) $(call FIXPATH,$(OBJECTS))
+	$(RM) *.csv
+	rm -r out
 	@echo Cleanup complete!
 
 run: all

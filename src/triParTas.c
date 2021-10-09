@@ -1,7 +1,7 @@
 /**
  * @file triParTas.c
  * @author Kubilay KAPLAN et Emile METRAL (kubilay.kpl@gmail.com)
- * @brief 
+ * @brief Programme pour creer un algorithmes de tri de type "par tas"
  * @version 0.1
  * @date 2021-10-08
  * 
