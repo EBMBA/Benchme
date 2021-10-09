@@ -15,7 +15,7 @@ Commande pour generer la documentation : `make documentation`
 
 Commande pour utiliser le programme : `./output/benchme nomDuFichier`
 
-Il est demandé à l'utilisateur de choisir une taille pour le nombre de valeurs à trier. Il est possible de rentrer `0` pour utiliser les nombre de valeurs prédéfinient qui sont : 100, 1000, 10000 et 100000 valeurs. Si l'utilisateur rentre un nombre inférieur à 10 alors il pourra vérifier le tri dans le fichier d'exportation et il pourra choisir l'ordre (croissant/décroissant). Chaque valeurs est testé 3 fois.
+Il est demandé à l'utilisateur de choisir une taille pour le nombre de valeurs à trier. Il est possible de rentrer `0` pour utiliser les nombres de valeurs prédéfinient qui sont : 100, 1000, 10000 et 100000 valeurs. Si l'utilisateur rentre un nombre inférieur à 10 alors il pourra vérifier le tri dans le fichier d'exportation et il pourra choisir l'ordre (croissant/décroissant). Chaque valeur est testé 3 fois.
 
 # Résultats attendus
 * tri a bulle 
