@@ -17,8 +17,8 @@ Commande pour utiliser le programme : `./output/benchme nomDuFichier`
 
 
 # Gestion de projet
-Pour la gestion du projet nous avons utilisé la méthode agile pour nous fixé des objectifs à court terme et ainsi être plus performant.
-![Image Projet Agile](agile.PNG)
+Pour la gestion du projet nous avons utilisé la méthode agile pour nous fixé des objectifs à court terme et ainsi être plus performant.  
+![Image Projet Agile](img/agile.PNG)
 
 # Résultats attendus
 Il est demandé à l'utilisateur de choisir une taille pour le nombre de valeurs à trier. Il est possible de rentrer `0` pour utiliser les nombres de valeurs prédéfinient qui sont : 100, 1000, 10000 et 100000 valeurs. Si l'utilisateur rentre un nombre inférieur à 10 alors il pourra vérifier le tri dans le fichier d'exportation et il pourra choisir l'ordre (croissant/décroissant). Chaque valeur est testé 3 fois.
