@@ -16,7 +16,6 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
-#include <time.h>
 #include "../include/fonctionsSupplementaires.h"
 #include "../include/triBulle.h"
 #include "../include/triInsertion.h"
@@ -38,9 +37,8 @@ int main(int argc, char const *argv[])
     float *valeur = NULL, *valeurBulle = NULL, *valeurInsertion = NULL, *valeurSelection = NULL, *valeurTas = NULL;
 	float moyenneInsertion = 0.0, moyenneBulle = 0.0, moyenneTas = 0.0, moyenneSelection = 0.0;
 	float sommeInsertion = 0.0, sommeBulle = 0.0, sommeTas = 0.0, sommeSelection = 0.0;
-	int tableauTaille[6] = {100, 1000, 10000, 100000, 1000000, 10000000}, indexMaxTableau = 3; 
+	int tableauTaille[6] = {100, 1000, 10000, 100000, 1000000, 10000000}, indexMaxTableau = 4; 
     int choix = 0, taille = 0;
-    clock_t debut = 0.0, fin = 0.0;
 	float temps = 0.0;
 	FILE* fichier = NULL;
 
@@ -107,7 +105,7 @@ int main(int argc, char const *argv[])
 					fprintf(fichier, "\n");
 				}
 
-				printf("%d. Tri a bulle\n",i);
+				printf("%ld. Tri a bulle\n",i);
 					temps =tempsExecutionAvecTaille(&triBulle,valeurBulle, taille);
 					
 					// Changement de l'ordre en fonction du choix de l'utilisateur 
@@ -129,7 +127,7 @@ int main(int argc, char const *argv[])
 						fprintf(fichier, "\n");
 					}
 			
-				printf("%d. Tri par selection\n", i+1);
+				printf("%ld. Tri par selection\n", i+1);
 					temps =tempsExecutionAvecTaille(&triSelection,valeurSelection,taille);
 
 					// Changement de l'ordre en fonction du choix de l'utilisateur 
@@ -151,7 +149,7 @@ int main(int argc, char const *argv[])
 						fprintf(fichier, "\n");
 					}
 			
-				printf("%d Tri par insertion\n", i+2);
+				printf("%ld Tri par insertion\n", i+2);
 					temps =tempsExecutionAvecTaille(&triInsertion,valeurInsertion,taille);
 
 					// Changement de l'ordre en fonction du choix de l'utilisateur 
@@ -173,7 +171,7 @@ int main(int argc, char const *argv[])
 						fprintf(fichier, "\n");
 					}
 
-				printf("%d. Tri par tas\n", i+3);
+				printf("%ld. Tri par tas\n", i+3);
 					temps = tempsExecutionAvecTaille(&triParTas, valeurTas, taille);
 
 					// Changement de l'ordre en fonction du choix de l'utilisateur 
