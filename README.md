@@ -15,6 +15,7 @@ Commande pour generer la documentation : `make documentation`
 
 Commande pour utiliser le programme : `./output/benchme nomDuFichier`
 
+Nous avons fait en sorte que le `make clean` supprime aussi le fichier Csv générer ainsi que le dossier générer pour la documentation Doxygen.
 
 # Gestion de projet
 Pour la gestion du projet nous avons utilisé la méthode agile pour nous fixé des objectifs à court terme et ainsi être plus performant.  
